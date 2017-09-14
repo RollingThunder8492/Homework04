@@ -1,0 +1,86 @@
+public abstract Magnitude {
+
+	protected abstract bool lessThan( Magnitude m );
+	
+	private bool lessThanEqualTo( Magnitude m ) {
+		if( !m.lessThan( this ) )
+			return true;
+		else
+			return false;
+	}
+	
+	private bool equalTo( Magnitude m ) {
+		if( !this.lessThan(m) && !m.lessThan( this ) )
+			return true;
+		else
+			return false;
+	}
+	
+	private bool greaterThanEqualTo( Magnitude m ) {
+		if( !this.lessThan(m) )
+			return true;
+		else
+			return false;
+	}
+	
+	private bool greaterThan( Magnitude m ) {
+		if( !this.lessThanEqualTo(m) )
+			return true;
+		else
+			return false;
+	}
+	
+	private bool notEqual( Magnitude m ) {
+		if( !this.equalTo(m) )
+			return true;
+		else
+			return false;
+	}
+}
+
+public Currency extends Magnitude {
+
+  private double currencyAmt;
+	
+	public Currency( double c ) {
+		currencyAmt = c;
+	}
+  
+  public bool lessThan( Currency c ) {
+    if( this.currencyAmt < c.currencyAmt )
+      return true;
+    else
+			return false;
+  }
+}
+
+public CartPoint extends Magnitude {
+*-
+	private double x;
+	private double y;
+	private double distanceFromOrigin;
+	
+	public CartPoint(double x, double y) {
+		this.x = x;
+		this.y = y;
+		findDistanceFromOrigin();
+	}
+	
+	private void findDistanceFromOrigin() {
+		distanceFromOrigin = sqrt( pow(x,2), pow(y,2) );
+	}
+	
+	public bool lessThan( CartPoint c ) {
+		if( this.distanceFromOrigin < c.distanceFromOrigin )
+			return true;
+		else
+			return false;
+	{
+}
+
+public Test {
+
+	public static void main( String[] args ) {
+		
+	}
+}
