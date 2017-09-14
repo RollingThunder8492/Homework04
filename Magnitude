@@ -1,3 +1,39 @@
-public class Magnitude {
+public abstract Magnitude {
+
+	protected abstract bool lessThan( Magnitude m );
 	
+	private bool lessThanEqualTo( Magnitude m ) {
+		if( !m.lessThan( this ) )
+			return true;
+		else
+			return false;
+	}
+	
+	private bool equalTo( Magnitude m ) {
+		if( !this.lessThan(m) && !m.lessThan( this ) )
+			return true;
+		else
+			return false;
+	}
+	
+	private bool greaterThanEqualTo( Magnitude m ) {
+		if( !this.lessThan(m) )
+			return true;
+		else
+			return false;
+	}
+	
+	private bool greaterThan( Magnitude m ) {
+		if( !this.lessThanEqualTo(m) )
+			return true;
+		else
+			return false;
+	}
+	
+	private bool notEqual( Magnitude m ) {
+		if( !this.equalTo(m) )
+			return true;
+		else
+			return false;
+	}
 }
