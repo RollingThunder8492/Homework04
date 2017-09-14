@@ -1,36 +1,36 @@
 public abstract Magnitude {
 
-	protected abstract bool lessThan( Magnitude m );
+	abstract bool lessThan( Magnitude m );
 	
-	private bool lessThanEqualTo( Magnitude m ) {
+	bool lessThanEqualTo( Magnitude m ) {
 		if( !m.lessThan( this ) )
 			return true;
 		else
 			return false;
 	}
 	
-	private bool equalTo( Magnitude m ) {
+	bool equalTo( Magnitude m ) {
 		if( !this.lessThan(m) && !m.lessThan( this ) )
 			return true;
 		else
 			return false;
 	}
 	
-	private bool greaterThanEqualTo( Magnitude m ) {
+	bool greaterThanEqualTo( Magnitude m ) {
 		if( !this.lessThan(m) )
 			return true;
 		else
 			return false;
 	}
 	
-	private bool greaterThan( Magnitude m ) {
+	bool greaterThan( Magnitude m ) {
 		if( !this.lessThanEqualTo(m) )
 			return true;
 		else
 			return false;
 	}
 	
-	private bool notEqual( Magnitude m ) {
+	bool notEqual( Magnitude m ) {
 		if( !this.equalTo(m) )
 			return true;
 		else
@@ -48,14 +48,14 @@ public Currency extends Magnitude {
   
   public bool lessThan( Currency c ) {
     if( this.currencyAmt < c.currencyAmt )
-      return true;
+		return true;
     else
-			return false;
+		return false;
   }
 }
 
 public CartPoint extends Magnitude {
-*-
+
 	private double x;
 	private double y;
 	private double distanceFromOrigin;
